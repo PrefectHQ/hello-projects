@@ -1,0 +1,3 @@
+{
+  "log-flow": "flows/log_flow.py:log_flow"
+}
