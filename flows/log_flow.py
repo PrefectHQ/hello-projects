@@ -1,5 +1,5 @@
 import sys
-from .utilities import AN_IMPORTED_MESSAGE
+from utilities import AN_IMPORTED_MESSAGE
 
 import prefect
 from prefect import flow, task, get_run_logger
@@ -14,10 +14,13 @@ def log_task(name):
 
 
 @flow
-def log_flow(name: str):
+def log_flow(name: str = "Marvin"):
     log_task(name)
 
 
 if __name__ == "__main__":
-    name = sys.argv[1]
-    log_flow(name)
+    if len(sys.argv) > 1:
+        name = sys.argv[1]
+        log_flow(name)
+    else:
+        log_flow()
